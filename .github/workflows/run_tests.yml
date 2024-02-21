@@ -44,12 +44,12 @@ jobs:
         if: "github.event.inputs.deployment_target == 'all'"
         run: pytest -s -v --alluredir=results
       - name: Store allure results
-          uses: actions/upload-artifact@v3
-          with:
-            name: results
-            path:
-              results
-            retention-days: 1
+        uses: actions/upload-artifact@v3
+        with:
+          name: results
+          path:
+            results
+          retention-days: 1
 
   generate-report:
     runs-on: ubuntu-latest
