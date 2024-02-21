@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11.5"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: create_object
         if: "github.event.inputs.deployment_target == 'create_object'"
         run: pytest -s -v tests/test_object.py::TestObject::test_create_object
