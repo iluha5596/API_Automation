@@ -30,16 +30,16 @@ jobs:
         run: pip install -r requirements.txt
       - name: create_object
         if: "github.event.inputs.deployment_target == 'create_object'"
-        run: pytest -s -v tests/test_object.py::TestObject::test_create_object
+        run: pytest -s -v tests/test_object.py::TestObject::test_create_object --alluredir=results
       - name: get_object
         if: "github.event.inputs.deployment_target == 'get_object'"
-        run: pytest -s -v tests/test_object.py::TestObject::test_get_object
+        run: pytest -s -v tests/test_object.py::TestObject::test_get_object --alluredir=results
       - name: update_object
         if: "github.event.inputs.deployment_target == 'update_object'"
-        run: pytest -s -v tests/test_object.py::TestObject::test_update_object
+        run: pytest -s -v tests/test_object.py::TestObject::test_update_object --alluredir=results
       - name: delete_object
         if: "github.event.inputs.deployment_target == 'delete_object'"
-        run: pytest -s -v tests/test_object.py::TestObject::test_delete_object
+        run: pytest -s -v tests/test_object.py::TestObject::test_delete_object --alluredir=results
       - name: all
         if: "github.event.inputs.deployment_target == 'all'"
-        run: pytest -s -v
+        run: pytest -s -v --alluredir=results
