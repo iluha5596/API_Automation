@@ -26,20 +26,18 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11.5"
-      - name: Install dependencies
-        run: pip install -r requirements.txt
       - name: create_object
         if: "github.event.inputs.deployment_target == 'create_object'"
         run: pytest -s -v tests/test_object.py::TestObject::test_create_object
       - name: get_object
-          if: "github.event.inputs.deployment_target == 'get_object'"
-          run: pytest -s -v tests/test_object.py::TestObject::test_get_object
+        if: "github.event.inputs.deployment_target == 'get_object'"
+        run: pytest -s -v tests/test_object.py::TestObject::test_get_object
       - name: update_object
-          if: "github.event.inputs.deployment_target == 'update_object'"
-          run: pytest -s -v tests/test_object.py::TestObject::test_update_object
+        if: "github.event.inputs.deployment_target == 'update_object'"
+        run: pytest -s -v tests/test_object.py::TestObject::test_update_object
       - name: delete_object
-          if: "github.event.inputs.deployment_target == 'delete_object'"
-          run: pytest -s -v tests/test_object.py::TestObject::test_delete_object
+        if: "github.event.inputs.deployment_target == 'delete_object'"
+        run: pytest -s -v tests/test_object.py::TestObject::test_delete_object
       - name: all
-          if: "github.event.inputs.deployment_target == 'all'"
-          run: pytest -s -v
+        if: "github.event.inputs.deployment_target == 'all'"
+        run: pytest -s -v
