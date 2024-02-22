@@ -40,9 +40,8 @@ class TestObject:
         delete_object_endpoint.delete_by_id(obj_id)
         delete_object_endpoint.check_response_is_200()
 
-
-
-
-
-
-
+    @allure.story('Проваленный тест GET запрос')
+    def test_failed(self, obj_id):
+        get_object_endpoint = GetObject()
+        get_object_endpoint.get_by_id(obj_id)
+        get_object_endpoint.check_response_is_400()
